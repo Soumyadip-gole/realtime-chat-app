@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
 	{
+		google_id: {
+			type: String,
+		},
 		fullName: {
 			type: String,
 			required: true,
@@ -13,19 +16,17 @@ const userSchema = new mongoose.Schema(
 		},
 		password: {
 			type: String,
-			required: true,
 			minlength: 6,
 		},
 		gender: {
 			type: String,
-			required: true,
-			enum: ["male", "female"],
+			default: "NA",
+			enum: ["male", "female","NA"],
 		},
 		profilePic: {
 			type: String,
 			default: "",
 		},
-		// createdAt, updatedAt => Member since <createdAt>
 	},
 	{ timestamps: true }
 );
